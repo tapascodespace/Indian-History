@@ -111,12 +111,15 @@
 
   <div class="layout" style="max-width:1280px;margin:44px auto 0">
     <div class="map-wrap">
-            <svg class="map" viewBox="0 0 880 1140" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="map" viewBox="0 0 880 1140" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="hatch-anchor" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <rect width="8" height="8" fill="#d4a86a" opacity="0.3"/>
-            <line x1="0" y1="0" x2="0" y2="8" stroke="#b8520f" stroke-width="1.5" opacity="0.4"/>
+            <rect width="8" height="8" fill="#d4a86a" opacity="0.25"/>
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#b8520f" stroke-width="1.5" opacity="0.3"/>
           </pattern>
+          <filter id="soft-edge" x="-5%" y="-5%" width="110%" height="110%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+          </filter>
         </defs>
         <!-- Base map -->
         <rect x="0" y="0" width="880" height="1140" fill="#c8d8d0" />
@@ -316,92 +319,92 @@
         <path d="M 696.0 403.0 L 704.0 391.0 L 712.0 403.0" fill="none" stroke="#c4a66a" stroke-width="1" opacity="0.6" />
         <path d="M 740.0 386.7 L 748.0 374.7 L 756.0 386.7" fill="none" stroke="#c4a66a" stroke-width="1" opacity="0.6" />
         <path d="M 784.0 386.7 L 792.0 374.7 L 800.0 386.7" fill="none" stroke="#c4a66a" stroke-width="1" opacity="0.6" />
-        <text class="label-mountain" x="484.0" y="293.1" font-size="11" fill="#c4a66a" letter-spacing="4" text-anchor="middle" font-variant="small-caps" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">H I M A L A Y A</text>
+        <text class="label-mountain" x="484.0" y="293.1" font-size="14" fill="#c4a66a" letter-spacing="5" text-anchor="middle" font-variant="small-caps" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">H I M A L A Y A</text>
         <!-- Kingdom territories -->
-        <g opacity="0.72">
-        <path d="M 286.0 716.6 L 330.0 651.4 L 374.0 667.7 L 396.0 749.1 L 352.0 814.3 L 308.0 798.0 L 286.0 749.1 L 286.0 716.6 Z" fill="#b8520f" stroke="#5a2a08" stroke-width="1.5" opacity="0.6" />
-        <path d="M 198.0 586.3 L 286.0 456.0 L 396.0 390.9 L 506.0 423.4 L 572.0 521.1 L 550.0 651.4 L 506.0 749.1 L 440.0 814.3 L 352.0 879.4 L 264.0 846.9 L 198.0 749.1 L 176.0 651.4 L 198.0 586.3 Z" fill="url(#hatch-anchor)" stroke="#b8520f" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.22" />
-        <path d="M 264.0 586.3 L 286.0 537.4 L 319.0 553.7 L 308.0 618.9 L 286.0 635.1 L 264.0 618.9 L 264.0 586.3 Z" fill="#4a6a8f" stroke="#2a4a6f" stroke-width="1.5" opacity="0.42" />
-        <path d="M 330.0 553.7 L 363.0 504.9 L 396.0 521.1 L 385.0 586.3 L 352.0 586.3 L 330.0 553.7 Z" fill="#6a5a8f" stroke="#4a3a6f" stroke-width="1.5" opacity="0.4" />
-        <path d="M 374.0 456.0 L 418.0 407.1 L 462.0 423.4 L 451.0 488.6 L 407.0 504.9 L 374.0 472.3 L 374.0 456.0 Z" fill="#5a8f5a" stroke="#3a6f3a" stroke-width="1.5" opacity="0.38" />
-        <path d="M 396.0 651.4 L 440.0 586.3 L 484.0 618.9 L 484.0 684.0 L 440.0 716.6 L 396.0 684.0 L 396.0 651.4 Z" fill="#8f5a5a" stroke="#6f3a3a" stroke-width="1.5" opacity="0.35" />
+        <g filter="url(#soft-edge)">
+        <path d="M 286.0 716.6 L 330.0 651.4 L 374.0 667.7 L 396.0 749.1 L 352.0 814.3 L 308.0 798.0 L 286.0 749.1 L 286.0 716.6 Z" fill="#b8520f" stroke="#5a2a08" stroke-width="1.5" opacity="0.33" />
+        <path d="M 198.0 586.3 L 286.0 456.0 L 396.0 390.9 L 506.0 423.4 L 572.0 521.1 L 550.0 651.4 L 506.0 749.1 L 440.0 814.3 L 352.0 879.4 L 264.0 846.9 L 198.0 749.1 L 176.0 651.4 L 198.0 586.3 Z" fill="url(#hatch-anchor)" stroke="#b8520f" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.15" />
+        <path d="M 264.0 586.3 L 286.0 537.4 L 319.0 553.7 L 308.0 618.9 L 286.0 635.1 L 264.0 618.9 L 264.0 586.3 Z" fill="#4a6a8f" stroke="#2a4a6f" stroke-width="1.5" opacity="0.23" />
+        <path d="M 330.0 553.7 L 363.0 504.9 L 396.0 521.1 L 385.0 586.3 L 352.0 586.3 L 330.0 553.7 Z" fill="#6a5a8f" stroke="#4a3a6f" stroke-width="1.5" opacity="0.22" />
+        <path d="M 374.0 456.0 L 418.0 407.1 L 462.0 423.4 L 451.0 488.6 L 407.0 504.9 L 374.0 472.3 L 374.0 456.0 Z" fill="#5a8f5a" stroke="#3a6f3a" stroke-width="1.5" opacity="0.21" />
+        <path d="M 396.0 651.4 L 440.0 586.3 L 484.0 618.9 L 484.0 684.0 L 440.0 716.6 L 396.0 684.0 L 396.0 651.4 Z" fill="#8f5a5a" stroke="#6f3a3a" stroke-width="1.5" opacity="0.19" />
         </g>
         <!-- River labels -->
-        <text class="label-river" x="394.0" y="942.0" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(39.6 394.0 942.0)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Kāvērī</text>
-        <text class="label-river" x="354.1" y="808.1" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-56.2 354.1 808.1)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Tungabhadrā</text>
-        <text class="label-river" x="423.1" y="771.1" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(87.3 423.1 771.1)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Kṛṣṇā</text>
-        <text class="label-river" x="403.2" y="685.4" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-19.2 403.2 685.4)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Godāvarī</text>
-        <text class="label-river" x="487.3" y="504.3" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-11.0 487.3 504.3)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Son</text>
-        <text class="label-river" x="476.8" y="597.6" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-53.5 476.8 597.6)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Mahānadī</text>
-        <text class="label-river" x="339.3" y="613.3" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(12.0 339.3 613.3)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Tāptī</text>
-        <text class="label-river" x="389.3" y="561.7" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-19.7 389.3 561.7)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Narmadā</text>
-        <text class="label-river" x="214.6" y="374.5" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-45.3 214.6 374.5)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Indus</text>
-        <text class="label-river" x="325.7" y="223.0" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-51.2 325.7 223.0)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Chenāb</text>
-        <text class="label-river" x="340.7" y="507.4" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-58.2 340.7 507.4)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Chambal</text>
-        <text class="label-river" x="702.5" y="447.2" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-31.2 702.5 447.2)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Brahmaputra</text>
-        <text class="label-river" x="487.0" y="479.2" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(28.6 487.0 479.2)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Gaṅgā</text>
-        <text class="label-river" x="419.3" y="435.5" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(56.1 419.3 435.5)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Yamunā</text>
-        <text class="label-river" x="305.6" y="312.8" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-43.2 305.6 312.8)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Sutlej</text>
-        <text class="label-river" x="278.9" y="246.4" font-size="10" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-22.5 278.9 246.4)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Jhelum</text>
+        <text class="label-river" x="394.0" y="942.0" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(39.6 394.0 942.0)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Kāvērī</text>
+        <text class="label-river" x="354.1" y="808.1" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-56.2 354.1 808.1)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Tungabhadrā</text>
+        <text class="label-river" x="423.1" y="771.1" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(87.3 423.1 771.1)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Kṛṣṇā</text>
+        <text class="label-river" x="403.2" y="685.4" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-19.2 403.2 685.4)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Godāvarī</text>
+        <text class="label-river" x="487.3" y="504.3" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-11.0 487.3 504.3)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Son</text>
+        <text class="label-river" x="476.8" y="597.6" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-53.5 476.8 597.6)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Mahānadī</text>
+        <text class="label-river" x="339.3" y="613.3" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(12.0 339.3 613.3)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Tāptī</text>
+        <text class="label-river" x="389.3" y="561.7" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-19.7 389.3 561.7)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Narmadā</text>
+        <text class="label-river" x="214.6" y="374.5" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-45.3 214.6 374.5)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Indus</text>
+        <text class="label-river" x="325.7" y="223.0" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-51.2 325.7 223.0)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Chenāb</text>
+        <text class="label-river" x="340.7" y="507.4" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-58.2 340.7 507.4)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Chambal</text>
+        <text class="label-river" x="702.5" y="447.2" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-31.2 702.5 447.2)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Brahmaputra</text>
+        <text class="label-river" x="487.0" y="479.2" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(28.6 487.0 479.2)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Gaṅgā</text>
+        <text class="label-river" x="419.3" y="435.5" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(56.1 419.3 435.5)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Yamunā</text>
+        <text class="label-river" x="305.6" y="312.8" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-43.2 305.6 312.8)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Sutlej</text>
+        <text class="label-river" x="278.9" y="246.4" font-size="13" fill="#5a7f90" font-style="italic" text-anchor="middle" transform="rotate(-22.5 278.9 246.4)" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Jhelum</text>
         <!-- Sea labels -->
-        <text class="label-sea" x="110.0" y="749.1" font-size="14" fill="#a8bcb1" font-style="italic" text-anchor="middle" letter-spacing="3">
+        <text class="label-sea" x="110.0" y="749.1" font-size="18" fill="#a8bcb1" font-style="italic" text-anchor="middle" letter-spacing="3">
           <tspan x="110.0" dy="0">Arabian</tspan>
           <tspan x="110.0" dy="1.2em">Sea</tspan>
         </text>
-        <text class="label-sea" x="594.0" y="814.3" font-size="14" fill="#a8bcb1" font-style="italic" text-anchor="middle" letter-spacing="3">
+        <text class="label-sea" x="594.0" y="814.3" font-size="18" fill="#a8bcb1" font-style="italic" text-anchor="middle" letter-spacing="3">
           <tspan x="594.0" dy="0">Bay of</tspan>
           <tspan x="594.0" dy="1.2em">Bengal</tspan>
         </text>
-        <text class="label-sea" x="352.0" y="1074.9" font-size="13" fill="#a8bcb1" font-style="italic" text-anchor="middle" letter-spacing="3">Indian Ocean</text>
+        <text class="label-sea" x="352.0" y="1074.9" font-size="16" fill="#a8bcb1" font-style="italic" text-anchor="middle" letter-spacing="3">Indian Ocean</text>
         <!-- Cities -->
         <circle cx="305.8" cy="700.3" r="5" fill="#5a2a08" stroke="#fbf2db" stroke-width="1" />
         <circle cx="305.8" cy="700.3" r="2.0" fill="#fbf2db" />
-        <text class="label-city" x="313.8" y="703.3" font-size="10" fill="#2a1810" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Pune</text>
+        <text class="label-city" x="314.8" y="704.3" font-size="13" fill="#2a1810" font-weight="500" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Pune</text>
         <circle cx="294.8" cy="710.1" r="3" fill="#2a1810" opacity="0.7" />
-        <text class="label-city" x="300.8" y="713.1" font-size="10" fill="#2a1810" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Raigad</text>
+        <text class="label-city" x="301.8" y="714.1" font-size="13" fill="#2a1810" font-weight="500" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Raigad</text>
         <circle cx="290.4" cy="576.5" r="3" fill="#2a1810" opacity="0.7" />
-        <text class="label-city" x="296.4" y="579.5" font-size="10" fill="#2a1810" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Baroda</text>
+        <text class="label-city" x="297.4" y="580.5" font-size="13" fill="#2a1810" font-weight="500" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Baroda</text>
         <circle cx="349.8" cy="563.5" r="3" fill="#2a1810" opacity="0.7" />
-        <text class="label-city" x="355.8" y="566.5" font-size="10" fill="#2a1810" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Indore</text>
+        <text class="label-city" x="356.8" y="567.5" font-size="13" fill="#2a1810" font-weight="500" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Indore</text>
         <circle cx="400.4" cy="449.5" r="3" fill="#2a1810" opacity="0.7" />
-        <text class="label-city" x="406.4" y="452.5" font-size="10" fill="#2a1810" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Gwalior</text>
+        <text class="label-city" x="407.4" y="453.5" font-size="13" fill="#2a1810" font-weight="500" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Gwalior</text>
         <circle cx="420.2" cy="615.6" r="3" fill="#2a1810" opacity="0.7" />
-        <text class="label-city" x="426.2" y="618.6" font-size="10" fill="#2a1810" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round;">Nagpur</text>
+        <text class="label-city" x="427.2" y="619.6" font-size="13" fill="#2a1810" font-weight="500" style="paint-order:stroke fill;stroke:#fbf2db;stroke-width:3.5px;stroke-linejoin:round;">Nagpur</text>
         <g class="compass" transform="translate(820,60)">
           <circle r="25" fill="none" stroke="#8a7a5a" stroke-width="0.8" opacity="0.5"/>
           <line x1="0" y1="-22" x2="0" y2="22" stroke="#8a7a5a" stroke-width="0.6" opacity="0.4"/>
           <line x1="-22" y1="0" x2="22" y2="0" stroke="#8a7a5a" stroke-width="0.6" opacity="0.4"/>
           <polygon points="0,-23 -4,0 0,-8 4,0" fill="#8a7a5a" opacity="0.7"/>
           <polygon points="0,23 -4,0 0,8 4,0" fill="none" stroke="#8a7a5a" stroke-width="0.5" opacity="0.5"/>
-          <text y="-29" text-anchor="middle" font-size="9" fill="#8a7a5a" font-variant="small-caps">N</text>
+          <text y="-30" text-anchor="middle" font-size="11" fill="#8a7a5a" font-variant="small-caps">N</text>
         </g>
         <g class="scale" transform="translate(44,1075)">
           <line x1="0" y1="0" x2="106" y2="0" stroke="#8a7a5a" stroke-width="1.5"/>
           <line x1="0" y1="-4" x2="0" y2="4" stroke="#8a7a5a" stroke-width="1"/>
           <line x1="106" y1="-4" x2="106" y2="4" stroke="#8a7a5a" stroke-width="1"/>
-          <text x="53" y="14" text-anchor="middle" font-size="9" fill="#8a7a5a">≈ 500 km</text>
+          <text x="53" y="16" text-anchor="middle" font-size="11" fill="#8a7a5a">≈ 500 km</text>
         </g>
         <g class="title-cartouche" transform="translate(20,1060)">
-          <rect x="0" y="0" width="300" height="65" rx="4" fill="#f3e9d2" stroke="#8a7a5a" stroke-width="0.8" opacity="0.92"/>
-          <text x="15" y="22" font-size="13" font-weight="600" fill="#2a1810" font-family="Cinzel, serif">South Asia — the Maratha Confederacy</text>
-          <text x="15" y="42" font-size="10" fill="#5a4a3a" font-style="italic">c. 1674–1818 CE</text>
-          <text x="15" y="56" font-size="8" fill="#8a7a6a">Historical Atlas of the Indian Subcontinent</text>
+          <rect x="0" y="0" width="320" height="72" rx="4" fill="#f3e9d2" stroke="#8a7a5a" stroke-width="0.8" opacity="0.92"/>
+          <text x="15" y="24" font-size="15" font-weight="600" fill="#2a1810" font-family="Cinzel, serif">South Asia — the Maratha Confederacy</text>
+          <text x="15" y="46" font-size="12" fill="#5a4a3a" font-style="italic">c. 1674–1818 CE</text>
+          <text x="15" y="62" font-size="10" fill="#8a7a6a">Historical Atlas of the Indian Subcontinent</text>
         </g>
-        <g class="legend-cartouche" transform="translate(660,968)">
-          <rect x="0" y="0" width="200" height="162" rx="4" fill="#f3e9d2" stroke="#8a7a5a" stroke-width="0.8" opacity="0.92"/>
-          <text x="15" y="18" font-size="10" font-weight="600" fill="#2a1810" font-variant="small-caps" letter-spacing="1">Legend</text>
-          <rect x="15" y="35" width="16" height="12" rx="2" fill="#b8520f" opacity="0.65" stroke="#b8520f" stroke-width="0.8"/>
-          <text x="38" y="45" font-size="9" fill="#3a2618">Peshwa core</text>
-          <rect x="15" y="57" width="16" height="12" fill="url(#hatch-anchor)" stroke="#b8520f" stroke-width="0.8"/>
-          <text x="38" y="67" font-size="9" fill="#3a2618">Confederacy sphere</text>
-          <rect x="15" y="79" width="16" height="12" rx="2" fill="#4a6a8f" opacity="0.65" stroke="#4a6a8f" stroke-width="0.8"/>
-          <text x="38" y="89" font-size="9" fill="#3a2618">Gaekwad (Baroda)</text>
-          <rect x="15" y="101" width="16" height="12" rx="2" fill="#6a5a8f" opacity="0.65" stroke="#6a5a8f" stroke-width="0.8"/>
-          <text x="38" y="111" font-size="9" fill="#3a2618">Holkar (Indore)</text>
-          <rect x="15" y="123" width="16" height="12" rx="2" fill="#5a8f5a" opacity="0.65" stroke="#5a8f5a" stroke-width="0.8"/>
-          <text x="38" y="133" font-size="9" fill="#3a2618">Scindia (Gwalior)</text>
-          <rect x="15" y="145" width="16" height="12" rx="2" fill="#8f5a5a" opacity="0.65" stroke="#8f5a5a" stroke-width="0.8"/>
-          <text x="38" y="155" font-size="9" fill="#3a2618">Bhonsle (Nagpur)</text>
+        <g class="legend-cartouche" transform="translate(640,951)">
+          <rect x="0" y="0" width="220" height="179" rx="4" fill="#f3e9d2" stroke="#8a7a5a" stroke-width="0.8" opacity="0.92"/>
+          <text x="15" y="20" font-size="12" font-weight="600" fill="#2a1810" font-variant="small-caps" letter-spacing="1.5">Legend</text>
+          <rect x="15" y="38" width="18" height="14" rx="2" fill="#b8520f" opacity="0.45" stroke="#b8520f" stroke-width="0.8"/>
+          <text x="40" y="49" font-size="11" fill="#3a2618">Peshwa core</text>
+          <rect x="15" y="62" width="18" height="14" fill="url(#hatch-anchor)" stroke="#b8520f" stroke-width="0.8"/>
+          <text x="40" y="73" font-size="11" fill="#3a2618">Confederacy sphere</text>
+          <rect x="15" y="86" width="18" height="14" rx="2" fill="#4a6a8f" opacity="0.45" stroke="#4a6a8f" stroke-width="0.8"/>
+          <text x="40" y="97" font-size="11" fill="#3a2618">Gaekwad (Baroda)</text>
+          <rect x="15" y="110" width="18" height="14" rx="2" fill="#6a5a8f" opacity="0.45" stroke="#6a5a8f" stroke-width="0.8"/>
+          <text x="40" y="121" font-size="11" fill="#3a2618">Holkar (Indore)</text>
+          <rect x="15" y="134" width="18" height="14" rx="2" fill="#5a8f5a" opacity="0.45" stroke="#5a8f5a" stroke-width="0.8"/>
+          <text x="40" y="145" font-size="11" fill="#3a2618">Scindia (Gwalior)</text>
+          <rect x="15" y="158" width="18" height="14" rx="2" fill="#8f5a5a" opacity="0.45" stroke="#8f5a5a" stroke-width="0.8"/>
+          <text x="40" y="169" font-size="11" fill="#3a2618">Bhonsle (Nagpur)</text>
         </g>
       </svg>
     </div>
