@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cities of the Indus — the Harappan Civilisation · c. 3300–1300 BCE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--parchment:#f3e9d2;--parchment-deep:#e6d3a8;--ink:#2a1810;--ink-soft:#3a2618;--gold:#a87c2f;--saffron-deep:#8a3a08;--rule:rgba(42,24,16,0.25);--sea:#c8d8d0;--sea-deep:#a8bcb1;--land:#ead5a3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+  body{background-image:radial-gradient(ellipse at 15% 10%,rgba(168,124,47,0.10),transparent 40%),radial-gradient(ellipse at 85% 90%,rgba(110,31,31,0.08),transparent 45%);background-attachment:fixed;min-height:100vh;padding:40px 20px 80px}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;background-image:repeating-linear-gradient(0deg,rgba(42,24,16,0.018) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(42,24,16,0.012) 0 1px,transparent 1px 4px);mix-blend-mode:multiply}
+  .frame{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+  header{text-align:center;padding:20px 20px 40px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+  .ornament{display:flex;align-items:center;justify-content:center;gap:18px;color:var(--gold);font-size:22px;margin-bottom:18px;letter-spacing:0.3em}
+  .ornament .line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);width:120px}
+  .eyebrow{font-family:'Cinzel',serif;font-size:12.5px;letter-spacing:0.55em;color:var(--saffron-deep);text-transform:uppercase;margin-bottom:14px}
+  h1{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(28px,4.5vw,46px);color:var(--ink);letter-spacing:0.04em;line-height:1.15}
+  h1 .amp{color:var(--saffron-deep);font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500}
+  .subtitle{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink-soft);max-width:740px;margin-left:auto;margin-right:auto;line-height:1.5}
+  .layout{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:36px;align-items:start}
+  @media(max-width:980px){.layout{grid-template-columns:1fr}}
+  .map-wrap{background:linear-gradient(180deg,#fbf2db,#f1e3bd);border:1px solid var(--gold);border-radius:4px;padding:14px;box-shadow:0 4px 20px rgba(42,24,16,0.12),inset 0 0 0 3px rgba(255,255,255,0.4);position:relative}
+  .map-wrap::before,.map-wrap::after{content:"\u2766";position:absolute;color:var(--gold);font-size:14px}
+  .map-wrap::before{top:8px;left:14px}.map-wrap::after{top:8px;right:14px}
+  svg.map{width:100%;height:auto;display:block;font-family:'Cormorant Garamond',serif}
+  .panel{background:rgba(255,253,245,0.6);border:1px solid var(--rule);border-radius:4px;padding:28px 26px}
+  .panel h2{font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.4em;color:var(--saffron-deep);text-transform:uppercase;text-align:center;margin-bottom:8px}
+  .panel .sub{text-align:center;font-style:italic;color:var(--ink-soft);font-size:15px;margin-bottom:22px;padding-bottom:14px;border-bottom:1px dotted var(--rule);line-height:1.5}
+  .kingdom{display:grid;grid-template-columns:18px 1fr auto;gap:12px;padding:11px 0;border-bottom:1px dotted var(--rule);align-items:baseline}
+  .kingdom:last-child{border-bottom:none}
+  .kingdom .dot{width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.15);margin-top:4px}
+  .kingdom .name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--ink);line-height:1.3}
+  .kingdom .name small{display:block;font-weight:400;font-style:italic;font-size:14px;color:var(--ink-soft);margin-top:3px;line-height:1.4}
+  .kingdom .years{font-size:13px;color:var(--ink-soft);font-style:italic;letter-spacing:0.04em;white-space:nowrap}
+  .kingdom.anchor .name{color:var(--saffron-deep)}
+  .footnote{margin-top:50px;padding:24px 28px;background:rgba(255,253,245,0.5);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);text-align:center;font-style:italic;color:var(--ink-soft);font-size:15px;line-height:1.7}
+  footer{text-align:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule);font-style:italic;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+  footer .ornament{font-size:14px;margin-bottom:12px}
+  footer .ornament .line{width:60px}
+  .credit{margin-top:18px;font-family:'Cinzel',serif;font-style:normal;font-size:14px;letter-spacing:0.22em;color:var(--saffron-deep);text-transform:uppercase}
+  .label-major{font-family:'Cinzel',serif;font-weight:600;letter-spacing:0.08em;fill:#2a1810;paint-order:stroke fill;stroke:#fbf2db;stroke-width:3px;stroke-linejoin:round}
+  .label-minor{font-family:'Cormorant Garamond',serif;font-style:italic;fill:#2a1810;paint-order:stroke fill;stroke:#fbf2db;stroke-width:2.5px;stroke-linejoin:round}
+  .label-city{font-family:'Cormorant Garamond',serif;font-weight:600;fill:#2a1810;paint-order:stroke fill;stroke:#fbf2db;stroke-width:2.5px;stroke-linejoin:round}
+  .label-water{font-family:'Cormorant Garamond',serif;font-style:italic;fill:#3a5a4a;letter-spacing:0.25em;paint-order:stroke fill;stroke:rgba(251,242,219,0.6);stroke-width:2px;stroke-linejoin:round}
+  .label-river{font-family:'Cormorant Garamond',serif;font-style:italic;fill:#4a6a7a;font-size:11px;paint-order:stroke fill;stroke:rgba(251,242,219,0.5);stroke-width:2px;stroke-linejoin:round}
+  .label-natural{font-family:'Cormorant Garamond',serif;font-style:italic;fill:#5a4a2f}
+  section{max-width:1000px;margin:64px auto 0;padding:0 10px}
+  .section-head{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+  .section-head .numeral{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .section-head h2{font-family:'Cinzel',serif;font-weight:600;font-size:23px;letter-spacing:0.06em;color:var(--ink)}
+  .section-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+  section p{font-family:'EB Garamond',serif;font-size:18px;line-height:1.82;color:var(--ink-soft);margin-bottom:16px}
+  section p .lead-cap{float:left;font-family:'Cinzel',serif;font-weight:600;font-size:52px;line-height:0.82;margin:6px 12px 0 0;color:var(--saffron-deep)}
+  section p a{color:var(--saffron-deep)}
+  .legend{max-width:1000px;margin:44px auto 0;padding:22px 28px;background:rgba(255,253,245,0.7);border:1px solid var(--gold);border-radius:4px;box-shadow:inset 0 0 0 3px rgba(255,255,255,0.4)}
+  .legend h3{font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.4em;text-transform:uppercase;color:var(--saffron-deep);text-align:center;margin-bottom:16px}
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 26px}
+  .legend-item{display:flex;align-items:center;gap:12px;font-family:'EB Garamond',serif;font-size:15.5px;color:var(--ink-soft)}
+  .legend-item .glyph{flex:none;width:30px;text-align:center;color:var(--saffron-deep);font-size:15px}
+  .legend-item .swatch{flex:none;width:22px;height:14px;border-radius:2px;border:1px solid rgba(0,0,0,0.2)}
+  .timeline{margin-top:8px;padding:26px 24px 18px;background:rgba(255,253,245,0.6);border:1px solid var(--rule);border-radius:4px}
+  .tl-row{display:grid;grid-template-columns:170px 1fr;gap:14px;align-items:center;margin-bottom:7px}
+  .tl-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15.5px;color:var(--ink);text-align:right}
+  .tl-name.anchor{color:var(--saffron-deep)}
+  .tl-track{position:relative;height:18px;background:rgba(42,24,16,0.05);border-radius:3px}
+  .tl-bar{position:absolute;top:2px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,0.18)}
+  .tl-bar.anchor{height:16px;top:1px;border:1.5px solid #5a2a08}
+  .tl-axis{display:grid;grid-template-columns:170px 1fr;gap:14px;margin-top:10px}
+  .tl-ticks{position:relative;height:18px}
+  .tl-tick{position:absolute;transform:translateX(-50%);font-family:'EB Garamond',serif;font-size:11px;color:var(--ink-soft)}
+  .tl-tick::before{content:"";position:absolute;left:50%;top:-6px;width:1px;height:5px;background:var(--rule)}
+  .dyn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+  .dyn-card{background:rgba(255,253,245,0.6);border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:3px;padding:16px 18px}
+  .dyn-card.anchor{border-left-color:#b8520f;background:rgba(184,82,15,0.06)}
+  .dyn-card h4{font-family:'Cinzel',serif;font-size:15px;font-weight:600;letter-spacing:0.03em;color:var(--ink);margin-bottom:3px}
+  .dyn-card .when{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--saffron-deep);margin-bottom:10px;display:block}
+  .dyn-card p{font-size:15.5px;line-height:1.68;margin-bottom:0}
+  .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:6px}
+  .feature{background:rgba(255,253,245,0.55);border:1px solid var(--rule);border-radius:3px;padding:18px 20px}
+  .feature h4{font-family:'Cinzel',serif;font-size:14px;font-weight:600;letter-spacing:0.05em;color:var(--saffron-deep);margin-bottom:10px}
+  .feature p{font-size:15.5px;line-height:1.7;margin-bottom:0}
+  .sources{background:rgba(255,253,245,0.6);border:1px solid var(--rule);border-radius:4px;padding:24px 30px}
+  .sources h4{font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--saffron-deep);margin:18px 0 10px}
+  .sources h4:first-child{margin-top:0}
+  .sources ul{list-style:none}
+  .sources li{font-family:'EB Garamond',serif;font-size:15.5px;line-height:1.65;color:var(--ink-soft);padding:6px 0 6px 22px;position:relative;border-bottom:1px dotted var(--rule)}
+  .sources li:last-child{border-bottom:none}
+  .sources li::before{content:"\u2766";position:absolute;left:0;color:var(--gold);font-size:11px;top:7px}
+  .sources .note{margin-top:16px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <header>
+    <div class="ornament"><span class="line"></span>\u2766<span class="line"></span></div>
+    <div class="eyebrow">A Historical Cartography</div>
+    <h1>Cities of the Indus — the Harappan Civilisation</h1>
+    <div class="subtitle">The subcontinent, c. 3300 – c. 1300 BCE — the earliest urban civilisation of South Asia, its cities, trade networks, and enigmatic script</div>
+  </header>
+
+  <section>
+    <div class="section-head"><div class="numeral">I</div><h2>The Indus Civilisation</h2><div class="rule"></div></div>
+    <p><span class="lead-cap">T</span>he Indus Valley Civilisation — also called the Harappan Civilisation — was one of the three great cradles of urban life in the ancient world, alongside Mesopotamia and Egypt. At its peak (c. 2600–1900 BCE), it covered an area larger than either of its contemporaries, stretching from Shortughai in northern Afghanistan to Daimabad in Maharashtra, and from the Makran coast to the upper Gangetic plain.</p>
+    <p>Its great cities — <strong>Harappā</strong>, <strong>Mohenjo-daro</strong>, <strong>Dholāvīra</strong>, <strong>Rākhīgaṛhī</strong>, <strong>Lothal</strong> — display a remarkable uniformity of urban planning: grid-pattern streets, sophisticated drainage systems, standardised weights and measures, and a still-undeciphered script found on thousands of seal impressions. The civilisation engaged in long-distance trade with Mesopotamia, and its merchants' seals have been found at Ur and in the Persian Gulf.</p>
+    <p>The map below treats this as a <strong>city-and-trade</strong> plate rather than a territorial empire — showing the major urban centres, the geographic extent of the civilisation, and its trade connections with the wider ancient world.</p>
+  </section>
+
+  <div class="layout" style="max-width:1280px;margin:44px auto 0">
+    <div class="map-wrap">
+      <svg class="map" viewBox="0 0 880 1140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sea-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c8d8d0"/><stop offset="100%" stop-color="#a8bcb1"/>
+          </linearGradient>
+          <pattern id="hatch-anchor" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#b8520f" stroke-width="2.5" opacity="0.35"/>
+          </pattern>
+        </defs>
+        <rect width="880" height="1140" fill="url(#sea-grad)"/>
+        <path d="M 40 40 L 840 40 L 840 120 C 820 100,800 100,775 106 C 760 110,740 130,720 160 C 700 190,680 230,700 280 C 720 330,760 350,790 380 C 820 410,840 440,840 500 C 840 560,810 600,790 640 C 770 680,750 720,740 760 C 730 800,720 830,700 860 C 680 890,640 910,600 930 C 560 950,520 960,490 980 C 460 1000,440 1020,430 1050 C 420 1080,410 1100,400 1100 L 380 1080 C 370 1060,360 1040,370 1010 C 380 980,400 960,410 930 C 420 900,380 880,340 870 C 300 860,260 850,230 830 C 200 810,180 780,170 740 C 160 700,150 660,140 620 C 130 580,120 540,100 510 C 80 480,60 470,40 460 L 40 40 Z" fill="var(--land)"/>
+        <ellipse cx="510" cy="1020" rx="40" ry="55" fill="var(--land)" stroke="#8a7a5a" stroke-width="0.8"/>
+        <g opacity="0.72">
+          <path d="M 180 180 C 280 140,420 150,500 210 C 560 250,580 310,560 360 C 540 410,480 440,400 450 C 320 460,240 430,200 380 C 160 330,150 270,160 220 C 165 200,170 190,180 180 Z" fill="#b8520f" opacity="0.55" stroke="#5a2a08" stroke-width="1.5"/>
+          <path d="M 130 140 C 260 90,470 100,580 170 C 660 220,700 300,690 380 C 680 460,630 510,560 540 C 490 570,390 570,300 540 C 210 510,150 450,130 380 C 110 310,100 230,110 180 C 115 155,120 145,130 140 Z" fill="url(#hatch-anchor)" stroke="#5a2a08" stroke-width="1" stroke-dasharray="5 3"/>
+        </g>
+        <!-- Cities as large star markers -->
+        <g>
+          <g><path d="M 292 250 l 4 -10 l 4 10 l 10 0 l -8 6 l 3 10 l -9 -6 l -9 6 l 3 -10 l -8 -6 z" fill="#8a3a08"/><text class="label-city" x="312" y="252" font-size="14" font-weight="700">Harappā</text></g>
+          <g><path d="M 222 370 l 4 -10 l 4 10 l 10 0 l -8 6 l 3 10 l -9 -6 l -9 6 l 3 -10 l -8 -6 z" fill="#8a3a08"/><text class="label-city" x="242" y="372" font-size="14" font-weight="700">Mohenjo-daro</text></g>
+          <g><path d="M 220 440 l 3.5 -9 l 3.5 9 l 9 0 l -7 5.5 l 2.5 9 l -8 -5.5 l -8 5.5 l 2.5 -9 l -7 -5.5 z" fill="#8a3a08"/><text class="label-city" x="240" y="442" font-size="12">Dholāvīra</text></g>
+          <g><path d="M 380 260 l 3.5 -9 l 3.5 9 l 9 0 l -7 5.5 l 2.5 9 l -8 -5.5 l -8 5.5 l 2.5 -9 l -7 -5.5 z" fill="#8a3a08"/><text class="label-city" x="400" y="262" font-size="12">Rākhīgaṛhī</text></g>
+          <g><path d="M 260 460 l 3 -8 l 3 8 l 8 0 l -6 5 l 2 8 l -7 -5 l -7 5 l 2 -8 l -6 -5 z" fill="#8a3a08"/><text class="label-city" x="278" y="462" font-size="12">Lothal</text></g>
+          <g><circle cx="180" cy="200" r="3.5" fill="#8a3a08"/><text class="label-city" x="193" y="203" font-size="11">Shortughai</text></g>
+          <g><circle cx="400" cy="330" r="3" fill="#8a3a08"/><text class="label-city" x="412" y="333" font-size="11">Kālibangan</text></g>
+          <g><circle cx="340" cy="400" r="3" fill="#8a3a08"/><text class="label-city" x="352" y="403" font-size="10">Banāwalī</text></g>
+        </g>
+        <!-- Trade routes to Mesopotamia -->
+        <path d="M 170 400 C 120 420,80 440,50 460" fill="none" stroke="#8a3a08" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+        <text class="label-minor" x="48" y="480" font-size="10" fill="#8a3a08">← to Mesopotamia</text>
+        <path d="M 262 470 C 240 500,200 520,160 530" fill="none" stroke="#8a3a08" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.4"/>
+        <text class="label-minor" x="120" y="542" font-size="9" fill="#8a3a08">← coastal trade route</text>
+        <!-- Sarasvati-Ghaggar -->
+        <path d="M 340 230 C 330 280,310 330,290 380 C 270 420,250 440,240 450" fill="none" stroke="#7d97a6" stroke-width="2.2" opacity="0.6" stroke-dasharray="6 3" stroke-linecap="round"/>
+        <text class="label-river" x="310" y="310" transform="rotate(-70 310 310)" font-size="11">Sarasvatī-Ghaggar (seasonal)</text>
+        <g fill="none" stroke="#7d97a6" stroke-width="1.6" opacity="0.7" stroke-linecap="round">
+          <path d="M 300 165 C 282 240,262 330,248 430 C 240 470,232 500,224 522"/>
+          <path d="M 420 215 C 470 270,520 320,560 360 C 600 400,640 470,668 540"/>
+          <path d="M 452 250 C 470 310,490 350,540 365" stroke-width="1.2"/>
+          <path d="M 392 612 C 460 640,520 660,566 695" stroke-width="1.2"/>
+          <path d="M 386 690 C 450 712,510 730,548 762" stroke-width="1.1"/>
+          <path d="M 350 560 C 390 580,440 590,490 600" stroke-width="1.1"/>
+        </g>
+        <g class="label-river">
+          <text x="258" y="350" transform="rotate(-78 258 350)">Indus</text>
+          <text x="540" y="380" transform="rotate(42 540 380)">Ganga</text>
+          <text x="478" y="298" transform="rotate(52 478 298)" font-size="10">Yamuna</text>
+          <text x="490" y="662" transform="rotate(16 490 662)" font-size="10">Godavari</text>
+          <text x="476" y="738" transform="rotate(14 476 738)" font-size="10">Krishna</text>
+          <text x="420" y="588" transform="rotate(8 420 588)" font-size="10">Narmada</text>
+        </g>
+        <path d="M 300 156 C 360 124,440 130,480 215 C 520 250,600 300,700 348 C 730 356,760 356,775 366" fill="none" stroke="#8a7a5a" stroke-width="14" opacity="0.4"/>
+        <g font-family="'Cormorant Garamond',serif" font-style="italic" fill="#6e4f30" font-size="16" letter-spacing="5">
+          <text x="392" y="116" transform="rotate(8 392 116)">H I M \u0100 L A Y A</text>
+        </g>
+        <text class="label-water" x="138" y="640" font-size="22" transform="rotate(-90 138 640)">A R A B I A N   S E A</text>
+        <text class="label-water" x="772" y="720" font-size="22" transform="rotate(90 772 720)">B A Y   O F   B E N G A L</text>
+        <text class="label-water" x="470" y="1118" font-size="15" text-anchor="middle">I N D I A N   O C E A N</text>
+
+        <g transform="translate(150,946)" font-family="'EB Garamond',serif">
+          <rect x="-118" y="-92" width="236" height="190" fill="#fbf2db" stroke="#a87c2f" stroke-width="0.9" rx="3"/>
+          <rect x="-112" y="-86" width="224" height="178" fill="none" stroke="#a87c2f" stroke-width="0.4"/>
+          <text x="0" y="-66" text-anchor="middle" font-family="Cinzel,serif" font-size="12" letter-spacing="3" fill="#5a2a08">LEGEND</text>
+          <line x1="-86" y1="-57" x2="86" y2="-57" stroke="#a87c2f" stroke-width="0.4"/>
+          <rect x="-100" y="-48" width="24" height="14" fill="#b8520f" opacity="0.78" stroke="#5a2a08" stroke-width="0.8"/>
+          <text x="-68" y="-37" font-size="13" fill="#3a2818">Harappan core territory</text>
+          <rect x="-100" y="-26" width="24" height="14" fill="url(#hatch-anchor)" stroke="#5a2a08" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <text x="-68" y="-15" font-size="13" fill="#3a2818">Sphere of influence</text>
+          <rect x="-100" y="-4" width="24" height="14" fill="#6a5a8f" opacity="0.42" stroke="#4a3a6f" stroke-width="0.7"/>
+          <text x="-68" y="7" font-size="13" fill="#3a2818">Other kingdoms</text>
+          <path d="M -88 22 l 2.8 -7.2 l 2.8 7.2 l 7.2 0 l -5.5 4.5 l 1.8 7.2 l -6.3 -4.5 l -6.3 4.5 l 1.8 -7.2 l -5.5 -4.5 z" fill="#8a3a08"/>
+          <text x="-68" y="30" font-size="13" fill="#3a2818">Capital city</text>
+          <circle cx="-88" cy="48" r="3.8" fill="#8a3a08"/>
+          <text x="-68" y="52" font-size="13" fill="#3a2818">City</text>
+        </g>
+        <g transform="translate(112,150)">
+          <circle r="36" fill="none" stroke="#a87c2f" stroke-width="0.7"/>
+          <circle r="27" fill="none" stroke="#a87c2f" stroke-width="0.4"/>
+          <path d="M 0 -32 L 5.5 0 L 0 32 L -5.5 0 Z" fill="#a87c2f"/>
+          <path d="M -32 0 L 0 -5.5 L 32 0 L 0 5.5 Z" fill="#a87c2f" opacity="0.6"/>
+          <text x="0" y="-42" font-family="Cinzel,serif" font-size="13" text-anchor="middle" fill="#5a3818">N</text>
+          <text x="0" y="52" font-family="Cinzel,serif" font-size="13" text-anchor="middle" fill="#5a3818">S</text>
+          <text x="46" y="5" font-family="Cinzel,serif" font-size="13" text-anchor="middle" fill="#5a3818">E</text>
+          <text x="-46" y="5" font-family="Cinzel,serif" font-size="13" text-anchor="middle" fill="#5a3818">W</text>
+        </g>
+        <g transform="translate(248,1078)">
+          <rect x="-180" y="-32" width="360" height="54" fill="#fbf2db" stroke="#a87c2f" stroke-width="0.8" rx="2"/>
+          <text x="0" y="-10" text-anchor="middle" font-family="Cinzel,serif" font-weight="600" font-size="13" fill="#5a2a08" letter-spacing="3">INDIA · c. 3300 – 1300 BCE</text>
+          <text x="0" y="9" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="12" fill="#3a2618">the Indus (Harappan) civilisation</text>
+        </g>
+        <g transform="translate(726,1086)">
+          <line x1="-55" y1="0" x2="55" y2="0" stroke="#5a3818" stroke-width="1"/>
+          <line x1="-55" y1="-4" x2="-55" y2="4" stroke="#5a3818" stroke-width="1"/>
+          <line x1="0" y1="-4" x2="0" y2="4" stroke="#5a3818" stroke-width="1"/>
+          <line x1="55" y1="-4" x2="55" y2="4" stroke="#5a3818" stroke-width="1"/>
+          <text x="0" y="-8" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="11" fill="#5a3818">approx. 500 mi</text>
+          <text x="0" y="18" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="10" fill="#5a3818">(approximate scale)</text>
+        </g>
+      </svg>
+    </div>
+
+    <aside class="panel">
+      <h2>The Major Sites</h2>
+      <div class="sub">Principal cities and settlements of the Harappan Civilisation</div>
+      <div class="kingdom anchor"><div class="dot" style="background:#b8520f"></div><div class="name">Harappā<small>Punjab — type-site of the civilisation</small></div><div class="years">c. 3300–1300</div></div>
+      <div class="kingdom anchor"><div class="dot" style="background:#b8520f"></div><div class="name">Mohenjo-daro<small>Sindh — largest Indus city</small></div><div class="years">c. 2600–1900</div></div>
+      <div class="kingdom"><div class="dot" style="background:#b8520f"></div><div class="name">Dholāvīra<small>Kutch — monumental water architecture</small></div><div class="years">c. 2650–1450</div></div>
+      <div class="kingdom"><div class="dot" style="background:#b8520f"></div><div class="name">Rākhīgaṛhī<small>Haryana — largest site by area</small></div><div class="years">c. 3300–1300</div></div>
+      <div class="kingdom"><div class="dot" style="background:#b8520f"></div><div class="name">Lothal<small>Gujarat — dockyard and bead factory</small></div><div class="years">c. 2400–1600</div></div>
+    </aside>
+  </div>
+
+  <div class="legend">
+    <h3>Reading the Map</h3>
+    <p style="font-family:'EB Garamond',serif;font-size:15.5px;line-height:1.75;color:var(--ink-soft);text-align:center;margin:0">The <strong>solid fill</strong> marks the dense core of the <strong>Mature Harappan</strong> civilisation (c. 2600–1900 BCE). <strong>Diagonal hatching</strong> shows the wider extent including early and late phases. Star markers indicate major cities; dashed lines trace <strong>trade routes</strong> connecting the Indus cities to Mesopotamia.</p>
+  </div>
+
+  <section>
+    <div class="section-head"><div class="numeral">II</div><h2>Two Millennia at a Glance</h2><div class="rule"></div></div>
+    <div class="timeline">
+      <div class="tl-row"><div class="tl-name anchor">Early Harappan</div><div class="tl-track"><div class="tl-bar anchor" style="left:0%;width:35%;background:linear-gradient(90deg,#d4a40a,#d4840a)"></div></div></div>
+      <div class="tl-row"><div class="tl-name anchor">Mature Harappan</div><div class="tl-track"><div class="tl-bar anchor" style="left:35%;width:35%;background:linear-gradient(90deg,#d4840a,#b8520f)"></div></div></div>
+      <div class="tl-row"><div class="tl-name">Late Harappan</div><div class="tl-track"><div class="tl-bar" style="left:70%;width:30%;background:#8f6a4a;opacity:0.55"></div></div></div>
+      <div class="tl-row"><div class="tl-name">Mesopotamia (Ur III)</div><div class="tl-track"><div class="tl-bar" style="left:43%;width:10%;background:#6a5a8f;opacity:0.4"></div></div></div>
+      <div class="tl-axis"><div></div><div class="tl-ticks">
+        <span class="tl-tick" style="left:0%">3300 BCE</span>
+        <span class="tl-tick" style="left:35%">2600 BCE</span>
+        <span class="tl-tick" style="left:70%">1900 BCE</span>
+        <span class="tl-tick" style="left:100%">1300 BCE</span>
+      </div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="numeral">III</div>
+      <h2>The Kingdoms in Detail</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="dyn-grid">
+      <div class="dyn-card anchor"><h4>Mohenjo-daro</h4><span class="when">Sindh · c. 2600–1900 BCE</span><p>The largest city of the Indus civilisation, with an estimated population of 30,000–50,000. Its <strong>Great Bath</strong>, granary, and citadel mound demonstrate sophisticated urban planning. The city had a covered drainage system unmatched in the ancient world until the Roman Empire.</p></div>
+      <div class="dyn-card anchor"><h4>Harappā</h4><span class="when">Punjab · c. 3300–1300 BCE</span><p>The type-site of the civilisation, discovered in the 1820s and excavated from the 1920s. Harappā's multiple mounds represent different functional quarters — residential, industrial, and ceremonial. Its cemetery provides key evidence for Harappan burial practices and social stratification.</p></div>
+      <div class="dyn-card"><h4>Dholāvīra</h4><span class="when">Kutch (Gujarat) · c. 2650–1450 BCE</span><p>A city of remarkable water engineering — over sixteen reservoirs capturing seasonal monsoon runoff in the arid Rann of Kutch. Its three-part division (citadel, middle town, lower town) and monumental gateways are unique. A large inscription in the undeciphered Indus script was found above one gateway.</p></div>
+      <div class="dyn-card"><h4>Rākhīgaṛhī</h4><span class="when">Haryana · c. 3300–1300 BCE</span><p>Now recognised as the largest Harappan site by area, Rākhīgaṛhī lies in the Sarasvatī–Ghaggar basin. Recent DNA studies from its cemetery have provided crucial genetic data about the Harappan population.</p></div>
+      <div class="dyn-card"><h4>Lothal</h4><span class="when">Gujarat · c. 2400–1600 BCE</span><p>A port city with what its excavator identified as a <strong>dockyard</strong> — the oldest in the world if the identification is correct. Lothal was a centre of bead manufacture and maritime trade, linking the Harappan world to the Persian Gulf and Mesopotamia.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="numeral">IV</div>
+      <h2>Powers Beyond the Frontier</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="feature-grid">
+      <div class="feature"><h4>Mesopotamia &amp; the Gulf Trade</h4><p>Indus seals and goods have been found at <strong>Ur</strong>, <strong>Kish</strong>, and <strong>Tell Asmar</strong> in Mesopotamia. Cuneiform texts mention <i>Meluhha</i> — almost certainly the Indus region — as a source of carnelian, lapis lazuli, ivory, and timber. The trade was conducted via the Persian Gulf, with <i>Dilmun</i> (Bahrain) as an intermediary.</p></div>
+      <div class="feature"><h4>The Oxus Civilisation</h4><p>The Bactria-Margiana Archaeological Complex (BMAC) in Central Asia was contemporary with the Mature Harappan phase. Evidence of contact — shared artefact types, Indus seals at Shortughai — suggests that the Indus civilisation engaged with Central Asian networks as well as the Mesopotamian ones.</p></div>
+      <div class="feature"><h4>The Peninsular South</h4><p>South of the Harappan zone, chalcolithic and neolithic cultures existed independently. The Southern Neolithic (Ash Mound tradition) and the Deccan chalcolithic cultures developed their own agricultural systems and settlement patterns, interacting with the Harappan periphery but not part of the urban system.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="numeral">V</div>
+      <h2>The Cultural Efflorescence</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="feature-grid">
+      <div class="feature"><h4>The Indus Script</h4><p>The <strong>Indus script</strong> — found on thousands of seals, pottery, and copper tablets — remains undeciphered. With an average text length of only 5 signs, it may represent a logographic or logo-syllabic system. Without decipherment, the political structure, religious beliefs, and even the language(s) of the Harappan people remain matters of scholarly debate.</p></div>
+      <div class="feature"><h4>Urban Planning &amp; Hydraulics</h4><p>Harappan cities display a degree of urban planning unmatched in their era: grid-pattern streets, standardised brick sizes (4:2:1 ratio), covered drainage systems, public wells, and (at Mohenjo-daro) a Great Bath that may have had ritual significance. Water management — from Dholāvīra's reservoirs to Lothal's dock — was a defining achievement.</p></div>
+      <div class="feature"><h4>Craft &amp; Technology</h4><p>Harappan artisans produced exquisite craft goods: carnelian beads (drilled with a technique unique to the Indus), shell bangles, faience ornaments, steatite seals with animal motifs, and bronze figurines. The <strong>Dancing Girl</strong> of Mohenjo-daro and the <strong>Priest-King</strong> sculpture are iconic works of early world art.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="numeral">VI</div>
+      <h2>A Note on Method</h2>
+      <div class="rule"></div>
+    </div>
+    <p>This plate departs from the territorial-empire format used for later periods. The Indus Civilisation was not a single state (as far as we know) but a cultural zone characterised by shared material culture, urban planning conventions, weights and measures, and the undeciphered script. The map shows the <strong>geographic extent</strong> of Harappan-type sites and the major urban centres within them.</p>
+    <p>Dates follow the standard periodisation: Early Harappan (c. 3300–2600 BCE), Mature Harappan (c. 2600–1900 BCE), Late Harappan (c. 1900–1300 BCE). The "decline" of the civilisation was not a catastrophic collapse but a gradual de-urbanisation and fragmentation.</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="numeral">VII</div>
+      <h2>Sources &amp; Further Reading</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sources">
+      <h4>Primary Evidence</h4>
+      <ul>
+        <li>Archaeological excavations at Mohenjo-daro, Harappā, Dholāvīra, Rākhīgaṛhī, Lothal.</li>
+        <li>Indus seal corpus — over 4,000 inscribed objects.</li>
+        <li>Mesopotamian cuneiform references to <i>Meluhha</i>.</li>
+        <li>Indus-type artefacts found at Ur, Bahrain, and Shortughai.</li>
+      </ul>
+      <h4>Modern Scholarship</h4>
+      <ul>
+        <li>Gregory Possehl, <i>The Indus Civilisation: A Contemporary Perspective</i>.</li>
+        <li>Jonathan Mark Kenoyer, <i>Ancient Cities of the Indus Valley Civilisation</i>.</li>
+        <li>Shereen Ratnagar, <i>Understanding Harappa</i>.</li>
+        <li>Asko Parpola, <i>Deciphering the Indus Script</i>.</li>
+        <li>Vasant Shinde et al., "An Ancient Harappan Genome" (2019) — for recent genetic studies.</li>
+      </ul>
+      <div class="note">Citations are given for orientation; spellings of dynasties and rulers vary across editions. This page is an interpretive synthesis intended for study and teaching.</div>
+    </div>
+  </section>
+
+  <div class="footnote">A cartography of the Indus (Harappan) Civilisation showing major cities and trade routes. This is a city-and-trade plate; the Indus Civilisation was a cultural zone rather than a territorial state.</div>
+  <footer>
+    <div class="ornament"><span class="line"></span>\u2766<span class="line"></span></div>
+    <div class="credit">Made by Tapas Banerjee</div>
+  </footer>
+</div>
+</body>
+</html>
