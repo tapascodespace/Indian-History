@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -111,47 +111,175 @@
 
   <div class="layout" style="max-width:1280px;margin:44px auto 0">
     <div class="map-wrap">
-      <svg class="map" viewBox="0 0 880 1140" xmlns="http://www.w3.org/2000/svg">
+      <svg class="map" viewBox="0 0 900 1180" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="sea-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#c8d8d0"/><stop offset="100%" stop-color="#a8bcb1"/>
-          </linearGradient>
-          <pattern id="hatch-anchor" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="8" stroke="#b8520f" stroke-width="2.5" opacity="0.35"/>
+          <pattern id="sea-pattern" patternUnits="userSpaceOnUse" width="22" height="22">
+            <path d="M0 11 Q 5.5 6 11 11 T 22 11" stroke="#9ab0a4" stroke-width="0.6" fill="none" opacity="0.4"/>
+          </pattern>
+          <pattern id="mountain-pattern" patternUnits="userSpaceOnUse" width="14" height="10">
+            <path d="M0 10 L 4 2 L 8 10 M 6 10 L 10 4 L 14 10" stroke="#7a5a3a" stroke-width="0.7" fill="none"/>
+          </pattern>
+          <radialGradient id="parchment-glow" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#fbf2db"/>
+            <stop offset="100%" stop-color="#ecd9a8"/>
+          </radialGradient>
+          <radialGradient id="land-glow" cx="42%" cy="38%" r="75%">
+            <stop offset="0%" stop-color="#f0dcab"/>
+            <stop offset="100%" stop-color="#e2c98f"/>
+          </radialGradient>
+          <filter id="coast-soft" x="-5%" y="-5%" width="110%" height="110%">
+            <feGaussianBlur stdDeviation="1.1"/>
+          </filter>
+          <pattern id="hatch-pala" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="rotate(45)">
+            <rect width="9" height="9" fill="#b8520f" opacity="0.10"/>
+            <line x1="0" y1="0" x2="0" y2="9" stroke="#b8520f" stroke-width="2.6" opacity="0.5"/>
+          </pattern>
+          <pattern id="hatch-prat" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="rotate(-45)">
+            <rect width="9" height="9" fill="#9b6b3f" opacity="0.08"/>
+            <line x1="0" y1="0" x2="0" y2="9" stroke="#9b6b3f" stroke-width="2.4" opacity="0.5"/>
+          </pattern>
+          <pattern id="hatch-rash" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="rotate(15)">
+            <rect width="9" height="9" fill="#2d3b6e" opacity="0.07"/>
+            <line x1="0" y1="0" x2="0" y2="9" stroke="#2d3b6e" stroke-width="2.2" opacity="0.45"/>
           </pattern>
         </defs>
-        <rect width="880" height="1140" fill="url(#sea-grad)"/>
-        <path d="M 40 40 L 840 40 L 840 120 C 820 100,800 100,775 106 C 760 110,740 130,720 160 C 700 190,680 230,700 280 C 720 330,760 350,790 380 C 820 410,840 440,840 500 C 840 560,810 600,790 640 C 770 680,750 720,740 760 C 730 800,720 830,700 860 C 680 890,640 910,600 930 C 560 950,520 960,490 980 C 460 1000,440 1020,430 1050 C 420 1080,410 1100,400 1100 L 380 1080 C 370 1060,360 1040,370 1010 C 380 980,400 960,410 930 C 420 900,380 880,340 870 C 300 860,260 850,230 830 C 200 810,180 780,170 740 C 160 700,150 660,140 620 C 130 580,120 540,100 510 C 80 480,60 470,40 460 L 40 40 Z" fill="var(--land)"/>
-        <ellipse cx="510" cy="1020" rx="40" ry="55" fill="var(--land)" stroke="#8a7a5a" stroke-width="0.8"/>
-        <g opacity="0.72">
-          <path d="M 300 580 C 400 540,530 550,600 600 C 660 640,680 700,670 760 C 660 820,610 870,540 900 C 470 930,380 920,320 880 C 260 840,240 780,240 720 C 240 660,260 610,290 580 Z" fill="#b8520f" opacity="0.72" stroke="#5a2a08" stroke-width="1.5"/>
-          <path d="M 250 520 C 370 470,550 480,660 540 C 740 580,770 660,760 740 C 750 820,710 890,640 940 C 570 990,460 1000,370 980 C 280 960,220 910,200 850 C 180 790,190 710,210 650 C 230 590,240 550,250 520 Z" fill="url(#hatch-anchor)" stroke="#5a2a08" stroke-width="1" stroke-dasharray="5 3"/>
-          <path d="M 280 380 C 370 340,500 350,580 400 C 650 440,670 510,650 560 C 620 610,550 630,470 620 C 390 610,310 580,270 530 C 230 480,240 420,260 390 C 268 382,274 379,280 380 Z" fill="#4a6a8f" opacity="0.48" stroke="#2a4a6f" stroke-width="1"/>
+
+        <!-- background -->
+        <rect width="900" height="1180" fill="url(#parchment-glow)"/>
+        <rect width="900" height="1180" fill="url(#sea-pattern)" opacity="0.55"/>
+
+        <!-- inner border -->
+        <rect x="14" y="14" width="872" height="1152" fill="none" stroke="#a87c2f" stroke-width="1.2"/>
+        <rect x="20" y="20" width="860" height="1140" fill="none" stroke="#a87c2f" stroke-width="0.5"/>
+
+        <!-- corner flourishes -->
+        <g fill="#a87c2f" font-family="serif">
+          <text x="34" y="40" font-size="16">&#x2766;</text>
+          <text x="858" y="40" font-size="16">&#x2766;</text>
+          <text x="34" y="1148" font-size="16">&#x2766;</text>
+          <text x="858" y="1148" font-size="16">&#x2766;</text>
         </g>
+
+        <!-- soft coastal halo -->
+        <path d="M 296 150 C 320 128, 365 116, 400 120 C 430 124, 452 165, 470 205 C 495 235, 520 258, 545 272 C 600 300, 655 318, 700 342 C 730 350, 758 350, 778 362 C 786 372, 782 392, 768 408 C 758 452, 748 510, 726 548 C 712 566, 700 574, 694 580 C 668 600, 650 616, 643 632 C 622 668, 600 690, 572 706 C 545 740, 522 800, 502 852 C 498 880, 496 912, 493 938 C 482 968, 462 992, 440 1012 C 432 1002, 425 998, 429 992 C 414 962, 408 916, 412 868 C 410 808, 388 760, 372 720 C 352 692, 340 676, 336 662 C 332 632, 330 604, 331 582 C 325 588, 312 600, 296 608 C 280 600, 268 582, 259 566 C 270 556, 280 550, 285 546 C 276 536, 268 528, 263 522 C 244 506, 224 490, 208 474 C 214 412, 226 348, 246 286 C 258 240, 272 196, 296 150 Z" fill="#bcae8c" opacity="0.5" filter="url(#coast-soft)"/>
+
+        <!-- main landmass -->
+        <path id="india" d="M 296 150 C 320 128, 365 116, 400 120 C 430 124, 452 165, 470 205 C 495 235, 520 258, 545 272 C 600 300, 655 318, 700 342 C 730 350, 758 350, 778 362 C 786 372, 782 392, 768 408 C 758 452, 748 510, 726 548 C 712 566, 700 574, 694 580 C 668 600, 650 616, 643 632 C 622 668, 600 690, 572 706 C 545 740, 522 800, 502 852 C 498 880, 496 912, 493 938 C 482 968, 462 992, 440 1012 C 432 1002, 425 998, 429 992 C 414 962, 408 916, 412 868 C 410 808, 388 760, 372 720 C 352 692, 340 676, 336 662 C 332 632, 330 604, 331 582 C 325 588, 312 600, 296 608 C 280 600, 268 582, 259 566 C 270 556, 280 550, 285 546 C 276 536, 268 528, 263 522 C 244 506, 224 490, 208 474 C 214 412, 226 348, 246 286 C 258 240, 272 196, 296 150 Z" fill="url(#land-glow)" stroke="#6e4a20" stroke-width="1.6" stroke-linejoin="round"/>
+
+        <!-- Sri Lanka -->
+        <path id="lanka" d="M 498 952 C 516 948, 535 968, 542 998 C 548 1030, 540 1062, 522 1080 C 508 1092, 490 1090, 481 1072 C 470 1044, 470 1004, 478 980 C 484 966, 490 956, 498 952 Z" fill="url(#land-glow)" stroke="#6e4a20" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <clipPath id="land-clip"><use href="#india"/></clipPath>
+        <clipPath id="lanka-clip"><use href="#lanka"/></clipPath>
+
+        <!-- KINGDOM REGIONS clipped to coastline -->
+        <g clip-path="url(#land-clip)">
+
+          <!-- Vijayanagara wider sphere of influence (hatched) -->
+          <path d="M 330 580 L 430 560 L 540 572 L 590 640 L 600 720 L 580 800 L 540 860 L 480 920 L 420 940 L 370 900 L 340 830 L 320 750 L 310 680 L 320 620 Z" fill="url(#hatch-pala)" stroke="#5a2a08" stroke-width="1" stroke-dasharray="5 3" opacity="0.95"/>
+
+          <!-- Vijayanagara core — Deccan-south + Karnataka + Tamil + Kerala + south Andhra -->
+          <path d="M 340 666 L 422 608 L 522 620 L 566 692 L 548 768 L 458 798 L 384 774 L 346 704 Z" fill="#b8520f" opacity="0.78" stroke="#5a2a08" stroke-width="1.8"/>
+          <path d="M 384 772 L 458 798 L 442 864 L 390 856 L 372 806 Z" fill="#b8520f" opacity="0.78" stroke="#5a2a08" stroke-width="1.8"/>
+          <path d="M 456 792 L 548 778 L 568 854 L 524 924 L 474 934 L 444 864 Z" fill="#b8520f" opacity="0.78" stroke="#5a2a08" stroke-width="1.8"/>
+          <path d="M 440 930 L 498 924 L 480 1002 L 446 1008 L 420 952 Z" fill="#b8520f" opacity="0.75" stroke="#5a2a08" stroke-width="1.6"/>
+          <path d="M 366 776 L 410 800 L 412 870 L 412 942 L 396 988 L 378 946 L 364 862 L 360 802 Z" fill="#b8520f" opacity="0.72" stroke="#5a2a08" stroke-width="1.6"/>
+          <path d="M 522 622 L 574 692 L 568 768 L 546 770 L 524 694 Z" fill="#b8520f" opacity="0.72" stroke="#5a2a08" stroke-width="1.5"/>
+
+          <!-- Bahmani / Deccan Sultanates — north of Krishna-Tungabhadra frontier -->
+          <path d="M 350 420 L 452 420 L 480 492 L 410 538 L 344 502 L 330 456 Z" fill="#4a6a8f" opacity="0.44" stroke="#2a4060" stroke-width="0.8"/>
+          <path d="M 456 420 L 562 436 L 586 498 L 514 528 L 450 492 Z" fill="#4a6a8f" opacity="0.44" stroke="#2a4060" stroke-width="0.8"/>
+
+          <!-- Gajapati / Odisha (east coast) -->
+          <path d="M 595 544 L 674 548 L 662 642 L 606 654 L 564 592 Z" fill="#3a5a3a" opacity="0.40" stroke="#1f3320" stroke-width="0.7"/>
+
+          <!-- Delhi Sultanate / Lodi (north, fading) -->
+          <path d="M 300 256 L 420 210 L 504 252 L 562 300 L 578 366 L 542 422 L 440 428 L 352 396 L 312 320 Z" fill="#8a7a6a" opacity="0.34" stroke="#5a4a3a" stroke-width="0.7"/>
+
+          <!-- Rajasthan Rajput states -->
+          <path d="M 280 330 L 360 350 L 374 432 L 300 458 L 268 396 Z" fill="#b85c5c" opacity="0.32" stroke="#6e2e2e" stroke-width="0.6"/>
+
+          <!-- Gujarat Sultanate -->
+          <path d="M 232 474 L 302 502 L 338 562 L 322 602 L 290 606 L 260 562 L 226 508 Z" fill="#d4a05a" opacity="0.36" stroke="#7a5825" stroke-width="0.6"/>
+
+        </g>
+
+        <!-- Sri Lanka tint -->
+        <g clip-path="url(#lanka-clip)">
+          <rect x="460" y="945" width="100" height="150" fill="#5a8a6e" opacity="0.45"/>
+        </g>
+
+        <!-- RIVERS -->
         <g fill="none" stroke="#7d97a6" stroke-width="1.6" opacity="0.7" stroke-linecap="round">
-          <path d="M 300 165 C 282 240,262 330,248 430 C 240 470,232 500,224 522"/>
-          <path d="M 420 215 C 470 270,520 320,560 360 C 600 400,640 470,668 540"/>
-          <path d="M 452 250 C 470 310,490 350,540 365" stroke-width="1.2"/>
-          <path d="M 392 612 C 460 640,520 660,566 695" stroke-width="1.2"/>
-          <path d="M 386 690 C 450 712,510 730,548 762" stroke-width="1.1"/>
-          <path d="M 350 560 C 390 580,440 590,490 600" stroke-width="1.1"/>
+          <path d="M 300 165 C 282 240, 262 330, 248 430 C 240 470, 232 500, 224 522"/>
+          <path d="M 420 215 C 470 270, 520 320, 560 360 C 600 400, 640 470, 668 540"/>
+          <path d="M 452 250 C 470 310, 490 350, 540 365" stroke-width="1.2"/>
+          <path d="M 760 372 C 720 430, 690 490, 672 545" stroke-width="1.3"/>
+          <path d="M 392 612 C 460 640, 520 660, 566 695" stroke-width="1.2"/>
+          <path d="M 386 690 C 450 712, 510 730, 548 762" stroke-width="1.1"/>
         </g>
+        <!-- RIVER LABELS -->
         <g class="label-river">
           <text x="258" y="350" transform="rotate(-78 258 350)">Indus</text>
           <text x="540" y="380" transform="rotate(42 540 380)">Ganga</text>
           <text x="478" y="298" transform="rotate(52 478 298)" font-size="10">Yamuna</text>
+          <text x="718" y="448" transform="rotate(-62 718 448)">Brahmaputra</text>
           <text x="490" y="662" transform="rotate(16 490 662)" font-size="10">Godavari</text>
           <text x="476" y="738" transform="rotate(14 476 738)" font-size="10">Krishna</text>
-          <text x="420" y="588" transform="rotate(8 420 588)" font-size="10">Narmada</text>
         </g>
-        <path d="M 300 156 C 360 124,440 130,480 215 C 520 250,600 300,700 348 C 730 356,760 356,775 366" fill="none" stroke="#8a7a5a" stroke-width="14" opacity="0.4"/>
+
+        <!-- HIMALAYA RANGE -->
+        <path d="M 300 156 C 360 124, 440 130, 480 215 C 520 250, 600 300, 700 348 C 730 356, 760 356, 775 366" fill="none" stroke="url(#mountain-pattern)" stroke-width="18" opacity="0.7"/>
         <g font-family="'Cormorant Garamond',serif" font-style="italic" fill="#6e4f30" font-size="16" letter-spacing="5">
-          <text x="392" y="116" transform="rotate(8 392 116)">H I M \u0100 L A Y A</text>
+          <text x="392" y="116" transform="rotate(8 392 116)">H I M A L A Y A</text>
         </g>
+
+        <!-- SEAS -->
         <text class="label-water" x="138" y="640" font-size="22" transform="rotate(-90 138 640)">A R A B I A N   S E A</text>
         <text class="label-water" x="772" y="720" font-size="22" transform="rotate(90 772 720)">B A Y   O F   B E N G A L</text>
         <text class="label-water" x="470" y="1118" font-size="15" text-anchor="middle">I N D I A N   O C E A N</text>
 
+        <!-- KINGDOM LABELS -->
+        <g>
+          <text class="label-major" x="448" y="715" font-size="22" text-anchor="middle" fill="#5a2a08" font-weight="700">VIJAYANAGARA</text>
+          <text class="label-minor" x="448" y="736" font-size="13" text-anchor="middle" fill="#5a2a08">Hampi &#xb7; City of Victory &#xb7; c. 1336&#x2013;1646</text>
+          <text class="label-major" x="452" y="468" font-size="14" text-anchor="middle">BAHMANI / DECCAN SULTANATES</text>
+          <text class="label-minor" x="452" y="484" font-size="11" text-anchor="middle">Gulbarga &#xb7; Bidar &#xb7; Bijapur &#xb7; Golconda &#xb7; Ahmadnagar</text>
+          <text class="label-major" x="436" y="314" font-size="13" text-anchor="middle">DELHI SULTANATE</text>
+          <text class="label-minor" x="436" y="329" font-size="11" text-anchor="middle">(Lodi &#xb7; fading 1450&#x2013;1526)</text>
+          <text class="label-minor" x="316" y="394" font-size="12" text-anchor="middle">Rajput</text>
+          <text class="label-minor" x="316" y="408" font-size="12" text-anchor="middle">States</text>
+          <text class="label-minor" x="273" y="550" font-size="11" text-anchor="middle">Gujarat</text>
+          <text class="label-minor" x="273" y="564" font-size="11" text-anchor="middle">Sultanate</text>
+          <text class="label-minor" x="624" y="594" font-size="11" text-anchor="middle">Gajapati</text>
+          <text class="label-minor" x="624" y="608" font-size="11" text-anchor="middle">Odisha</text>
+          <text class="label-major" x="380" y="892" font-size="12" text-anchor="middle" transform="rotate(-82 380 892)">KERALA</text>
+          <text class="label-major" x="490" y="860" font-size="13" text-anchor="middle" fill="#5a2a08">Tamil Country</text>
+          <text class="label-major" x="510" y="1020" font-size="12" text-anchor="middle">SRI LANKA</text>
+          <text class="label-minor" x="460" y="794" font-size="10" fill="#5a2a08" text-anchor="middle">&#x2014; Krishna&#x2013;Tungabhadra frontier &#x2014;</text>
+          <text class="label-minor" x="92" y="210" font-size="12" fill="#5a3818">Timurid /</text>
+          <text class="label-minor" x="92" y="226" font-size="12" fill="#5a3818">Afghans</text>
+          <text class="label-minor" x="560" y="92" font-size="12" fill="#5a3818" letter-spacing="2">&#x21E7; TIBET</text>
+          <text class="label-minor" x="824" y="470" font-size="11" fill="#5a3818" text-anchor="middle">Burma &#x2192;</text>
+        </g>
+
+        <!-- CAPITAL CITIES -->
+        <g>
+          <path d="M 405 754 l 3 -8 l 3 8 l 8 0 l -6 5 l 2 8 l -7 -5 l -7 5 l 2 -8 l -6 -5 z" fill="#8a3a08"/>
+          <text class="label-city" x="420" y="752" font-size="12" fill="#5a2a08">Hampi (Vijayanagara)</text>
+          <path d="M 488 518 l 3 -8 l 3 8 l 8 0 l -6 5 l 2 8 l -7 -5 l -7 5 l 2 -8 l -6 -5 z" fill="#2a4060"/>
+          <text class="label-city" x="502" y="516" font-size="11" fill="#2a4060">Bidar</text>
+          <circle cx="432" cy="622" r="3" fill="#2a4060"/>
+          <text class="label-city" x="438" y="625" font-size="10" fill="#2a4060">Bijapur</text>
+          <circle cx="554" cy="660" r="3" fill="#2a4060"/>
+          <text class="label-city" x="560" y="663" font-size="10" fill="#2a4060">Golconda</text>
+          <circle cx="498" cy="880" r="3" fill="#8a3a08"/>
+          <text class="label-city" x="504" y="883" font-size="11" fill="#8a3a08">Thanjavur</text>
+          <circle cx="372" cy="870" r="3" fill="#8a3a08"/>
+          <text class="label-city" x="338" y="868" font-size="10" fill="#8a3a08">Calicut</text>
+        </g>
+
+        <!-- LEGEND CARTOUCHE -->
         <g transform="translate(150,946)" font-family="'EB Garamond',serif">
           <rect x="-118" y="-92" width="236" height="190" fill="#fbf2db" stroke="#a87c2f" stroke-width="0.9" rx="3"/>
           <rect x="-112" y="-86" width="224" height="178" fill="none" stroke="#a87c2f" stroke-width="0.4"/>
@@ -159,15 +287,19 @@
           <line x1="-86" y1="-57" x2="86" y2="-57" stroke="#a87c2f" stroke-width="0.4"/>
           <rect x="-100" y="-48" width="24" height="14" fill="#b8520f" opacity="0.78" stroke="#5a2a08" stroke-width="0.8"/>
           <text x="-68" y="-37" font-size="13" fill="#3a2818">Vijayanagara core territory</text>
-          <rect x="-100" y="-26" width="24" height="14" fill="url(#hatch-anchor)" stroke="#5a2a08" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <rect x="-100" y="-26" width="24" height="14" fill="url(#hatch-pala)" stroke="#5a2a08" stroke-width="0.7" stroke-dasharray="3 2"/>
           <text x="-68" y="-15" font-size="13" fill="#3a2818">Sphere of influence</text>
-          <rect x="-100" y="-4" width="24" height="14" fill="#6a5a8f" opacity="0.42" stroke="#4a3a6f" stroke-width="0.7"/>
-          <text x="-68" y="7" font-size="13" fill="#3a2818">Other kingdoms</text>
+          <rect x="-100" y="-4" width="24" height="14" fill="#4a6a8f" opacity="0.44" stroke="#2a4060" stroke-width="0.7"/>
+          <text x="-68" y="7" font-size="13" fill="#3a2818">Deccan Sultanates</text>
           <path d="M -88 22 l 2.8 -7.2 l 2.8 7.2 l 7.2 0 l -5.5 4.5 l 1.8 7.2 l -6.3 -4.5 l -6.3 4.5 l 1.8 -7.2 l -5.5 -4.5 z" fill="#8a3a08"/>
           <text x="-68" y="30" font-size="13" fill="#3a2818">Capital city</text>
           <circle cx="-88" cy="48" r="3.8" fill="#8a3a08"/>
-          <text x="-68" y="52" font-size="13" fill="#3a2818">City</text>
+          <text x="-68" y="52" font-size="13" fill="#3a2818">City / fortress</text>
+          <line x1="-100" y1="70" x2="-76" y2="70" stroke="#5a2a08" stroke-width="2" stroke-dasharray="6 3"/>
+          <text x="-68" y="74" font-size="13" fill="#3a2818">Conflict frontier</text>
         </g>
+
+        <!-- COMPASS ROSE -->
         <g transform="translate(112,150)">
           <circle r="36" fill="none" stroke="#a87c2f" stroke-width="0.7"/>
           <circle r="27" fill="none" stroke="#a87c2f" stroke-width="0.4"/>
@@ -178,11 +310,15 @@
           <text x="46" y="5" font-family="Cinzel,serif" font-size="13" text-anchor="middle" fill="#5a3818">E</text>
           <text x="-46" y="5" font-family="Cinzel,serif" font-size="13" text-anchor="middle" fill="#5a3818">W</text>
         </g>
+
+        <!-- TITLE CARTOUCHE -->
         <g transform="translate(248,1078)">
           <rect x="-180" y="-32" width="360" height="54" fill="#fbf2db" stroke="#a87c2f" stroke-width="0.8" rx="2"/>
-          <text x="0" y="-10" text-anchor="middle" font-family="Cinzel,serif" font-weight="600" font-size="13" fill="#5a2a08" letter-spacing="3">SOUTH INDIA · c. 1336 – 1646 CE</text>
-          <text x="0" y="9" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="12" fill="#3a2618">the Vijayanagara empire</text>
+          <text x="0" y="-10" text-anchor="middle" font-family="Cinzel,serif" font-weight="600" font-size="13" fill="#5a2a08" letter-spacing="3">SOUTH ASIA &#xb7; c. 1336 &#x2013; 1646 CE</text>
+          <text x="0" y="9" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="12" fill="#3a2618">in the age of the Vijayanagara empire</text>
         </g>
+
+        <!-- SCALE NOTE -->
         <g transform="translate(726,1086)">
           <line x1="-55" y1="0" x2="55" y2="0" stroke="#5a3818" stroke-width="1"/>
           <line x1="-55" y1="-4" x2="-55" y2="4" stroke="#5a3818" stroke-width="1"/>
@@ -191,6 +327,7 @@
           <text x="0" y="-8" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="11" fill="#5a3818">approx. 500 mi</text>
           <text x="0" y="18" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="10" fill="#5a3818">(approximate scale)</text>
         </g>
+
       </svg>
     </div>
 
